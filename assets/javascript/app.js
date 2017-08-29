@@ -14,7 +14,12 @@
 
 
          //The theme is going to be based around DC Comics
-
+//Global Varaibles
+var counter = 30;
+var correctAnswers = 0;
+var incorrectAnswers = 0;
+var unanswered = 0;
+var questions = ["What is Superman's real name?","Who is the Green Lantern\' arch nemesis?", "Where does the Flash get his power's from?", "How is Supergirl related to Superman?", "Who created Wonder Woman?", "Who killed Superman?", ""]
 
 //this function will create the start button and initial screen
 document.ready(function() {
