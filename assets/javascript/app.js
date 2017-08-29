@@ -13,14 +13,12 @@
          */
 
 
-         //The theme is going to be based around Subaru
-var questionsAndAnswers = {
-   "question1": "What was the first year the Subaru Impreza was sold in the United States?",
-   "answers1": ["1996","2004","1992","1989"],
-   "question2": "What does the accronym \"STi\" stand for?",
-   "answers2": ["Subaru Technica International","Subaru Technologies Institute","It isn\'t and accronym...","Subaru Technology Innovation"],
-   "question3": "Which cars are built on the Impreza platform?",
-   "answers3": ["Impreza,Forester,Outback","Outback,Forester,WRX","Legacy,Impreza,Tribeca","Impreza, Forester, Crosstek"],
-   "question4": "Most Subaru engines are 4 cylinders?",
-   "answers4": ["True","False"]
-}
+         //The theme is going to be based around DC Comics
+
+
+//this function will create the start button and initial screen
+document.ready(function() {
+
+
+
+})
