@@ -5,17 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Trivia Game</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-    <div id="jumbotron"></div>
-    <div id="timer"></div>
-    <div id="questions"></div>
-    <button class="button" id="a" value="a"></button>
-    <button class="button" id="b" value="b"></button>
-    <button class="button" id="c" value="c"></button>
-    <button class="button" id="d" value="d"></button>
-    <div id="lastpage"></div>
-
+   <div class="container">
+      <div id="timer">
+         <h2 class="timer"></h2>
+      </div>
+      <div id="questions"></div>
+         <div id="buttons">
+            <button class="button" id="a" value="a"></button>
+            <button class="button" id="b" value="b"></button>
+            <button class="button" id="c" value="c"></button>
+            <button class="button" id="d" value="d"></button>
+         </div>
+      <div id="lastpage">
+         <h2 class="last1"></h2>
+         <h2 class="last2"></h2>
+         <h2 class="last3"></h2>
+      </div>
+   </div>
     
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

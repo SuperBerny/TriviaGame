@@ -20,6 +20,7 @@
 
 //this is the countdown variable
 var count = 3;
+var countTally = 0;
 var timeInterval;
 
 //correct, incorrect, and unaswered tallies
@@ -37,8 +38,7 @@ var question1 =
    b: "Kevin",
    c: "Kal-El",
    d: "Korben",
-   correct: "c",
-   image: ""
+   correct: "c"
 };
 var question2 =  {
    question: "Who is the Green Lantern's arch nemesis?",
@@ -46,17 +46,15 @@ var question2 =  {
    b: "Sinestro",
    c: "Blue Lantern",
    d: "Parallax",
-   correct: "b",
-   image: ""
+   correct: "b"
 };
 var question3 = {
    question: "Where does the Flash get his powers from?",
    a: "The Speed Zone",
    b: "Lightning",
-   c: "He generates it himself, dummy",
+   c: "Himself, dummy",
    d: "The Speed Force",
-   correct: "d",
-   image: ""
+   correct: "d"
 };
 
 var question4 = {
@@ -65,8 +63,7 @@ var question4 = {
    b: "Siblings",
    c: "Cousins",
    d: "Biological Mother",
-   correct: "c",
-   image: ""
+   correct: "c"
 };
 var question5 = {
    question: "Who created Wonder Woman?",
@@ -74,8 +71,7 @@ var question5 = {
    b: "She was created the normal way?!?",
    c: "Hades",
    d: "Kronos",
-   correct: "a",
-   image: ""
+   correct: "a"
 };
 var question6 =  {
    question: "Who killed Superman?",
@@ -83,13 +79,11 @@ var question6 =  {
    b: "Lex Luthor",
    c: "Doomsday",
    d: "Dark Seid",
-   correct: "c",
-   image: ""
+   correct: "c"
 };
 
 var questions = [question1, question2, question3, question4, question5, question6];
-var picture = questions[i].image;
-var imagePlacer = $("<img>").attr("src", picture);
+
 /***********/
 /*functions*/
 /***********/
@@ -105,7 +99,6 @@ $("#a").text(questions[i].a);
 $("#b").text(questions[i].b);
 $("#c").text(questions[i].c);
 $("#d").text(questions[i].d);
-$("#jumbotron").append(imagePlacer);
 }
 
 //calling render populates each button and the question div in the html
@@ -116,7 +109,7 @@ function countDown(){
 
       if (count < 0){
         unanswered++;
-        
+        countTally++;
         i++;
         count = 3;
         countDown();
@@ -125,17 +118,30 @@ function countDown(){
         clearInterval(timeInterval);
       }
 
-      $("#timer").html("<h2>" + count + "</h2>");
+      $(".timer").html("<h2>" + count + "</h2>");
       count--;
    }, 1000);
 }
 
 countDown();
 
+//calling gameEnd will populate the end page of the game regardless of getting correct or incorrect answers
+function gameEnd(){
+  if(countTally === 6){
+    $(".button , #questions , #timer").remove();
+    $("#lastpage").append("<h2>" + "Correct Answers: " + correctTally + "</h2>")
+    .append("<h2>" + "Incorrect Answers: " + incorrectTally + "</h2>")
+    .append("<h2>" + "Unanswered Questions: " + unanswered + "</h2>");
+  } 
+}
+
+gameEnd();
+
 $(".button").on("click", function(){
 clearInterval(timeInterval);
+countTally++;
 count = 3;
-// countDown();
+countDown();
 var userAnswer = $(this).eq(0).attr("value");
 // console.log(userAnswer, questions[i].correct);
 var gameOver = i === questions.length - 1;
@@ -150,9 +156,9 @@ if (userAnswer === questions[i].correct){
 
 if (gameOver = i === questions.length -1) {
    $(".button , #questions , #timer").remove();
-   $("#lastpage").append("<h2>" + "Correct Answers: " + correctTally + "</h2>")
-   .append("<h2>" + "Incorrect Answers: " + incorrectTally + "</h2>")
-   .append("<h2>" + "Unanswered Questions: " + unanswered + "</h2>");
+   $(".last1").html("Correct Answers: " + correctTally);
+   $(".last2").html("Incorrect Answers: " + incorrectTally);
+   $(".last3").html("Unanswered Questions: " + unanswered);
    // show correct/incorrect answers tallies
 } else {
    i++;
@@ -164,6 +170,8 @@ if (gameOver = i === questions.length -1) {
 }); //this is the on click end bracket
 /**/
 
-// show correct/incorrect on game over
+// unfinished:
+// I need to add a reset button to will appear at the end of the game that restarts the game
+
  
 
