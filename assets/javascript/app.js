@@ -19,7 +19,7 @@
 /******************/
 
 //this is the countdown variable
-var count = 3;
+var count = 15;
 var countTally = 0;
 var timeInterval;
 
