@@ -111,7 +111,7 @@ function countDown(){
         unanswered++;
         countTally++;
         i++;
-        count = 3;
+        count = 15;
         countDown();
         
         render();
@@ -140,7 +140,7 @@ gameEnd();
 $(".button").on("click", function(){
 clearInterval(timeInterval);
 countTally++;
-count = 3;
+count = 15;
 countDown();
 var userAnswer = $(this).eq(0).attr("value");
 // console.log(userAnswer, questions[i].correct);
